@@ -1,1 +1,48 @@
-<!doctype html><html><head><meta charset='utf-8'><title>MyTearn</title></head><body><h1>MyTearn</h1><p>PWA Beta</p></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MyTearn</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<section id="splash">
+  <h1>MyTearn</h1>
+  <p>Train & Earn – Web Beta</p>
+  <button onclick="start()">Start</button>
+</section>
+
+<section id="dashboard" style="display:none">
+  <h2>Dashboard</h2>
+  <p id="status">Training 0 von 10</p>
+
+  <select id="training">
+    <option>Krafttraining</option>
+    <option>Cardio</option>
+    <option>Stretching</option>
+  </select>
+
+  <br><br>
+  <button onclick="train()">Training abschließen</button>
+</section>
+
+<script>
+let count = 0;
+
+function start(){
+  document.getElementById("splash").style.display="none";
+  document.getElementById("dashboard").style.display="block";
+}
+
+function train(){
+  if(count >= 10) return;
+  count++;
+  document.getElementById("status").innerText =
+    count >= 10 ? "🎁 Reward freigeschaltet!" : "Training " + count + " von 10";
+}
+</script>
+
+</body>
+</html>
